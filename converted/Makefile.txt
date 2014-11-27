@@ -1,0 +1,13 @@
+all: bcdtest
+
+clean:
+	rm -f *.o bcdtest
+
+bcdtest: bcd.o bcdtest.o
+	$(CXX) -o $@ bcd.o bcdtest.o
+
+bcdtest.o: bcdtest.cc
+bcdtest.o: bcd.h
+
+bcd.o: bcd.h
+bcd.o: bcd.cc
